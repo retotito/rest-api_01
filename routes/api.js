@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Ninja = require('../models/ninja');
 
-router.get('/ninjas', function(req, res, next) {
+/*
+router.get('/stores', function(req, res, next) {
   // Ninja.find({}).then(function(ninjas) {
   //     res.send(ninjas);
   //   });
@@ -19,13 +20,28 @@ router.get('/ninjas', function(req, res, next) {
       spherical: true
     }
   )
-    .then(function(ninjas){
-      res.send(ninjas);
+    .then(function(Companys){
+      res.send(Companys);
     })
     .catch(next);
 });
+*/
 
-router.post('/ninjas', function(req, res, next) {
+router.get('/stores', function(req, res, next) {
+  // Ninja.find({}, function (err, users) {
+  //   res.send(users);
+  // });
+  let queryObject = req.query;
+
+  Ninja.find(
+    queryObject,
+    function(err, companies){ 
+     res.json(companies);
+     //res.send(req.query);
+  });
+});
+
+router.post('/stores', function(req, res, next) {
   Ninja.create(req.body)
   .then(function(ninja) {
       res.send(ninja);
@@ -33,7 +49,7 @@ router.post('/ninjas', function(req, res, next) {
   .catch(next);
 });
 
-router.put('/ninjas/:id', function(req, res, next) {
+router.put('/stores/:id', function(req, res, next) {
   Ninja.findByIdAndUpdate({_id: req.params.id}, req.body)
   .then(function(ninja) {
     Ninja.findOne({_id: req.params.id})
@@ -45,7 +61,7 @@ router.put('/ninjas/:id', function(req, res, next) {
   .catch(next);
 });
 
-router.delete('/ninjas/:id', function(req, res, next) {
+router.delete('/stores/:id', function(req, res, next) {
   Ninja.findByIdAndRemove({
     _id: req.params.id
   })

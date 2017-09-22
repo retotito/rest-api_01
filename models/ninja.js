@@ -24,8 +24,19 @@ const NinjaSchema = new Schema({
     type: Boolean,
     default: false
   },
+  location: {
+    type: String,
+    required: [true,'Location fields is requred!']
+  },
+  category: {
+    type: String,
+  },
+  amoutStores: {
+    type: Number
+  }
+
   // add in geo location
-  geometry: GeoSchema
+  //geometry: GeoSchema
 });
 
 const ninja = mongoose.model('ninja', NinjaSchema);
