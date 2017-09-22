@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 
 // initialize routes
 app.use('/api',require('./routes/api'));
+app.use('/',require('./routes/view'));
 
 // middleware for error handling
 // our own made middleware
