@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const app = express();
 
 // creates ninjago if it does not exist
-mongoose.connect('mongodb://localhost/ninjago');
+//mongoose.connect('mongodb://localhost/ninjago');
+mongoose.connect('mongodb://admin:admin@ds141434.mlab.com:41434/rest-api01');
 //mongoose.Promise = global.Promise; // override because it's depricated
 
 // middleware to parese json usw.
