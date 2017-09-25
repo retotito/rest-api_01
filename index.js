@@ -22,7 +22,8 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  //response.render('pages/index');
+  response.send('Wilkommen');
 });
 
 // middleware for error handling
